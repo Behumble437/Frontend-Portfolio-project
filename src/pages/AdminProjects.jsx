@@ -97,17 +97,17 @@ function AdminProjects() {
           </div>
 
           <div className="form-group">
-            <label htmlFor="completion">Completion</label>
-            <input
-              type="text"
-              id="completion"
-              name="completion"
-              value={formData.completion}
-              onChange={handleChange}
-              placeholder="Example: Completed, In Progress"
-              required
-            />
-          </div>
+  <label htmlFor="completion">Completion Date</label>
+  <input
+    type="date"
+    id="completion"
+    name="completion"
+    value={formData.completion}
+    onChange={handleChange}
+    required
+  />
+  <small>Format: YYYY-MM-DD</small>
+</div>
 
           <div className="form-group">
             <label htmlFor="description">Description</label>
@@ -147,7 +147,12 @@ function AdminProjects() {
           projects.map((project) => (
             <div className="project" key={project.id}>
               <h3>{project.title}</h3>
-              <p><strong>Completion:</strong> {project.completion}</p>
+              <p>
+  <strong>Completion Date:</strong>{" "}
+  {project.completion
+    ? new Date(project.completion).toLocaleDateString("en-CA")
+    : "N/A"}
+</p>
               <p>{project.description}</p>
 
               <button className="btn" onClick={() => handleEdit(project)}>

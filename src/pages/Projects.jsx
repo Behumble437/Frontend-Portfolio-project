@@ -31,7 +31,12 @@ function Projects() {
           projects.map((project) => (
             <div className="project" key={project.id}>
               <h3>{project.title}</h3>
-              <p><strong>Completion:</strong> {project.completion}</p>
+              <p>
+  <strong>Completion Date:</strong>{" "}
+  {project.completion
+    ? new Date(project.completion).toLocaleDateString("en-CA")
+    : "N/A"}
+</p>
               <p>{project.description}</p>
             </div>
           ))
