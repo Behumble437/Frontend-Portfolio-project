@@ -54,6 +54,7 @@ function AdminProjects() {
       fetchProjects();
     } catch (error) {
       console.error("Failed to save project:", error);
+      alert(error.response?.data?.message || "Failed to save project");
     }
   };
 

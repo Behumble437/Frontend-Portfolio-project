@@ -58,6 +58,7 @@ function AdminReferences() {
       fetchReferences();
     } catch (error) {
       console.error("Failed to save reference:", error);
+      alert(error.response?.data?.message || "Failed to save reference");
     }
   };
 
