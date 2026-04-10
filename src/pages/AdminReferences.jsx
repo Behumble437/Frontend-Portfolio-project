@@ -9,9 +9,10 @@ function AdminReferences() {
     lastname: "",
     email: "",
     position: "",
-    company: ""
+    company: "",
   });
   const [editingId, setEditingId] = useState(null);
+  const [message, setMessage] = useState("");
 
   const fetchReferences = async () => {
     try {
@@ -29,7 +30,7 @@ function AdminReferences() {
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -39,26 +40,29 @@ function AdminReferences() {
       lastname: "",
       email: "",
       position: "",
-      company: ""
+      company: "",
     });
     setEditingId(null);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setMessage("");
 
     try {
       if (editingId) {
         await API.put(`/references/${editingId}`, formData);
+        setMessage("Reference updated successfully.");
       } else {
         await API.post("/references", formData);
+        setMessage("Reference added successfully.");
       }
 
       resetForm();
       fetchReferences();
     } catch (error) {
       console.error("Failed to save reference:", error);
-      alert(error.response?.data?.message || "Failed to save reference");
+      setMessage(error.response?.data?.message || "Failed to save reference.");
     }
   };
 
@@ -68,105 +72,93 @@ function AdminReferences() {
       lastname: reference.lastname || "",
       email: reference.email || "",
       position: reference.position || "",
-      company: reference.company || ""
+      company: reference.company || "",
     });
-    setEditingId(reference.id);
+    setEditingId(reference.id || reference._id);
   };
 
   const handleDelete = async (id) => {
     try {
       await API.delete(`/references/${id}`);
+      setMessage("Reference deleted successfully.");
       fetchReferences();
     } catch (error) {
       console.error("Failed to delete reference:", error);
+      setMessage(error.response?.data?.message || "Failed to delete reference.");
     }
   };
 
   return (
     <>
       <Navbar />
-
-      <div className="container">
+      <div style={styles.page}>
         <h1>Manage References</h1>
 
-        <form onSubmit={handleSubmit} className="contact-form">
-          <div className="form-row">
-            <div className="form-group">
-              <label htmlFor="firstname">First Name</label>
-              <input
-                type="text"
-                id="firstname"
-                name="firstname"
-                value={formData.firstname}
-                onChange={handleChange}
-                required
-              />
-            </div>
+        <form onSubmit={handleSubmit} style={styles.form}>
+          <input
+            style={styles.input}
+            type="text"
+            name="firstname"
+            placeholder="First Name"
+            value={formData.firstname}
+            onChange={handleChange}
+            required
+          />
 
-            <div className="form-group">
-              <label htmlFor="lastname">Last Name</label>
-              <input
-                type="text"
-                id="lastname"
-                name="lastname"
-                value={formData.lastname}
-                onChange={handleChange}
-                required
-              />
-            </div>
-          </div>
+          <input
+            style={styles.input}
+            type="text"
+            name="lastname"
+            placeholder="Last Name"
+            value={formData.lastname}
+            onChange={handleChange}
+            required
+          />
 
-          <div className="form-group">
-            <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-          </div>
+          <input
+            style={styles.input}
+            type="email"
+            name="email"
+            placeholder="Email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
 
-          <div className="form-group">
-            <label htmlFor="position">Position</label>
-            <input
-              type="text"
-              id="position"
-              name="position"
-              value={formData.position}
-              onChange={handleChange}
-              required
-            />
-          </div>
+          <input
+            style={styles.input}
+            type="text"
+            name="position"
+            placeholder="Position"
+            value={formData.position}
+            onChange={handleChange}
+            required
+          />
 
-          <div className="form-group">
-            <label htmlFor="company">Company</label>
-            <input
-              type="text"
-              id="company"
-              name="company"
-              value={formData.company}
-              onChange={handleChange}
-              required
-            />
-          </div>
+          <input
+            style={styles.input}
+            type="text"
+            name="company"
+            placeholder="Company"
+            value={formData.company}
+            onChange={handleChange}
+            required
+          />
 
-          <button type="submit" className="btn submit-btn">
-            {editingId ? "Update Reference" : "Add Reference"}
-          </button>
-
-          {editingId && (
-            <button
-              type="button"
-              className="btn"
-              onClick={resetForm}
-              style={{ marginLeft: "10px" }}
-            >
-              Cancel
+          <div style={styles.row}>
+            <button style={styles.button} type="submit">
+              {editingId ? "Update Reference" : "Add Reference"}
             </button>
-          )}
+
+            {editingId && (
+              <button style={styles.cancel} type="button" onClick={resetForm}>
+                Cancel
+              </button>
+            )}
+          </div>
         </form>
+
+        {message && <p>{message}</p>}
 
         <hr />
 
@@ -176,33 +168,43 @@ function AdminReferences() {
           <p>No references found.</p>
         ) : (
           references.map((reference) => (
-            <div className="project" key={reference.id}>
+            <div key={reference.id || reference._id} style={styles.card}>
               <h3>
                 {reference.firstname} {reference.lastname}
               </h3>
-              <p><strong>Email:</strong> {reference.email}</p>
-              <p><strong>Position:</strong> {reference.position}</p>
-              <p><strong>Company:</strong> {reference.company}</p>
+              <p>Email: {reference.email}</p>
+              <p>Position: {reference.position}</p>
+              <p>Company: {reference.company}</p>
 
-              <button className="btn" onClick={() => handleEdit(reference)}>
+              <button style={styles.smallBtn} onClick={() => handleEdit(reference)}>
                 Edit
               </button>
-
               <button
-                className="btn"
-                onClick={() => handleDelete(reference.id)}
-                style={{ marginLeft: "10px" }}
+                style={{ ...styles.smallBtn, marginLeft: "10px", background: "#dc2626" }}
+                onClick={() => handleDelete(reference.id || reference._id)}
               >
                 Delete
               </button>
             </div>
           ))
         )}
-      </div>
 
-      <footer>@ 2026 Hanmu Xiong. All rights reserved.</footer>
+        <p style={styles.footer}>@ 2026 Hanmu Xiong. All rights reserved.</p>
+      </div>
     </>
   );
 }
+
+const styles = {
+  page: { padding: "40px" },
+  form: { display: "flex", flexDirection: "column", gap: "12px", maxWidth: "600px" },
+  input: { padding: "12px", border: "1px solid #ccc", borderRadius: "8px" },
+  row: { display: "flex", gap: "10px" },
+  button: { padding: "10px 14px", border: "none", borderRadius: "8px", background: "#2563eb", color: "#fff", cursor: "pointer" },
+  cancel: { padding: "10px 14px", border: "none", borderRadius: "8px", background: "#6b7280", color: "#fff", cursor: "pointer" },
+  card: { marginTop: "16px", padding: "18px", borderRadius: "10px", background: "#f9fafb" },
+  smallBtn: { padding: "8px 12px", border: "none", borderRadius: "6px", background: "#2563eb", color: "#fff", cursor: "pointer" },
+  footer: { marginTop: "30px" },
+};
 
 export default AdminReferences;
