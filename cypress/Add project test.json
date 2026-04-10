@@ -1,0 +1,182 @@
+{
+    "title": "Add project test",
+    "steps": [
+        {
+            "type": "setViewport",
+            "width": 2059,
+            "height": 1279,
+            "deviceScaleFactor": 1,
+            "isMobile": false,
+            "hasTouch": false,
+            "isLandscape": false
+        },
+        {
+            "type": "navigate",
+            "url": "https://frontend-portfolio-project-chslebe35-behumble437s-projects.vercel.app/dashboard",
+            "assertedEvents": [
+                {
+                    "type": "navigation",
+                    "url": "https://frontend-portfolio-project-chslebe35-behumble437s-projects.vercel.app/dashboard",
+                    "title": "portfolio-frontend"
+                }
+            ]
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Manage Projects"
+                ],
+                [
+                    "#root > div a:nth-of-type(1)"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div/a[1]"
+                ],
+                [
+                    "pierce/#root > div a:nth-of-type(1)"
+                ],
+                [
+                    "text/Manage Projects"
+                ]
+            ],
+            "offsetY": 25.125,
+            "offsetX": 148
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Project Title"
+                ],
+                [
+                    "input[type='text']"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/form/input[1]"
+                ],
+                [
+                    "pierce/input[type='text']"
+                ]
+            ],
+            "offsetY": 24.125,
+            "offsetX": 85
+        },
+        {
+            "type": "change",
+            "value": "testing33333",
+            "selectors": [
+                [
+                    "aria/Project Title"
+                ],
+                [
+                    "input[type='text']"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/form/input[1]"
+                ],
+                [
+                    "pierce/input[type='text']"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "input[type='date']"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/form/input[2]"
+                ],
+                [
+                    "pierce/input[type='date']"
+                ]
+            ],
+            "offsetY": 21.125,
+            "offsetX": 577
+        },
+        {
+            "type": "change",
+            "value": "2026-04-11",
+            "selectors": [
+                [
+                    "input[type='date']"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/form/input[2]"
+                ],
+                [
+                    "pierce/input[type='date']"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Description"
+                ],
+                [
+                    "textarea"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/form/textarea"
+                ],
+                [
+                    "pierce/textarea"
+                ]
+            ],
+            "offsetY": 39.125,
+            "offsetX": 122
+        },
+        {
+            "type": "change",
+            "value": "testing demo",
+            "selectors": [
+                [
+                    "aria/Description"
+                ],
+                [
+                    "textarea"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/form/textarea"
+                ],
+                [
+                    "pierce/textarea"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Add Project"
+                ],
+                [
+                    "#root > div button"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/form/div/button"
+                ],
+                [
+                    "pierce/#root > div button"
+                ],
+                [
+                    "text/Add Project"
+                ]
+            ],
+            "offsetY": 24.125,
+            "offsetX": 69
+        }
+    ]
+}

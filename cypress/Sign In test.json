@@ -1,0 +1,285 @@
+{
+    "title": "Sign In test",
+    "steps": [
+        {
+            "type": "setViewport",
+            "width": 2059,
+            "height": 1279,
+            "deviceScaleFactor": 1,
+            "isMobile": false,
+            "hasTouch": false,
+            "isLandscape": false
+        },
+        {
+            "type": "navigate",
+            "url": "https://frontend-portfolio-project-chslebe35-behumble437s-projects.vercel.app/",
+            "assertedEvents": [
+                {
+                    "type": "navigation",
+                    "url": "https://frontend-portfolio-project-chslebe35-behumble437s-projects.vercel.app/",
+                    "title": "portfolio-frontend"
+                }
+            ]
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Sign In"
+                ],
+                [
+                    "a:nth-of-type(8)"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/nav/div/div/a[8]"
+                ],
+                [
+                    "pierce/a:nth-of-type(8)"
+                ],
+                [
+                    "text/Sign In"
+                ]
+            ],
+            "offsetY": 17,
+            "offsetX": 36.078125
+        },
+        {
+            "type": "change",
+            "value": "Test222@gmail.com",
+            "selectors": [
+                [
+                    "aria/Enter your email"
+                ],
+                [
+                    "div:nth-of-type(1) > input"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div/form/div[1]/input"
+                ],
+                [
+                    "pierce/div:nth-of-type(1) > input"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "change",
+            "value": "xhm789987",
+            "selectors": [
+                [
+                    "aria/Enter your password"
+                ],
+                [
+                    "div:nth-of-type(2) > input"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div/form/div[2]/input"
+                ],
+                [
+                    "pierce/div:nth-of-type(2) > input"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Enter your email"
+                ],
+                [
+                    "div:nth-of-type(1) > input"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div/form/div[1]/input"
+                ],
+                [
+                    "pierce/div:nth-of-type(1) > input"
+                ],
+                [
+                    "text/Test222@gmail.com"
+                ]
+            ],
+            "offsetY": 27.359375,
+            "offsetX": 65.5
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "#root > div"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div"
+                ],
+                [
+                    "pierce/#root > div"
+                ]
+            ],
+            "offsetY": 586,
+            "offsetX": 730,
+            "duration": 434.40000009536743
+        },
+        {
+            "type": "change",
+            "value": "T",
+            "selectors": [
+                [
+                    "aria/Enter your email"
+                ],
+                [
+                    "div:nth-of-type(1) > input"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div/form/div[1]/input"
+                ],
+                [
+                    "pierce/div:nth-of-type(1) > input"
+                ],
+                [
+                    "text/Test222@gmail.com"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "keyUp",
+            "key": "t",
+            "target": "main"
+        },
+        {
+            "type": "change",
+            "value": "Test222@",
+            "selectors": [
+                [
+                    "aria/Enter your email"
+                ],
+                [
+                    "div:nth-of-type(1) > input"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div/form/div[1]/input"
+                ],
+                [
+                    "pierce/div:nth-of-type(1) > input"
+                ],
+                [
+                    "text/Test222@gmail.com"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "keyUp",
+            "key": "2",
+            "target": "main"
+        },
+        {
+            "type": "change",
+            "value": "Test222@gmail.com",
+            "selectors": [
+                [
+                    "aria/Enter your email"
+                ],
+                [
+                    "div:nth-of-type(1) > input"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div/form/div[1]/input"
+                ],
+                [
+                    "pierce/div:nth-of-type(1) > input"
+                ],
+                [
+                    "text/Test222@gmail.com"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Enter your password"
+                ],
+                [
+                    "div:nth-of-type(2) > input"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div/form/div[2]/input"
+                ],
+                [
+                    "pierce/div:nth-of-type(2) > input"
+                ],
+                [
+                    "text/xhm789987"
+                ]
+            ],
+            "offsetY": 17.359375,
+            "offsetX": 61.5
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "#root > div"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div"
+                ],
+                [
+                    "pierce/#root > div"
+                ]
+            ],
+            "offsetY": 653,
+            "offsetX": 706
+        },
+        {
+            "type": "change",
+            "value": "xhm789987",
+            "selectors": [
+                [
+                    "aria/Enter your password"
+                ],
+                [
+                    "div:nth-of-type(2) > input"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div/form/div[2]/input"
+                ],
+                [
+                    "pierce/div:nth-of-type(2) > input"
+                ],
+                [
+                    "text/xhm789987"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Sign in[role=\"button\"]"
+                ],
+                [
+                    "button"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div/form/button"
+                ],
+                [
+                    "pierce/button"
+                ]
+            ],
+            "offsetY": 14.359375,
+            "offsetX": 244.5
+        }
+    ]
+}

@@ -1,0 +1,249 @@
+{
+    "title": "Edit project test",
+    "steps": [
+        {
+            "type": "setViewport",
+            "width": 2059,
+            "height": 1279,
+            "deviceScaleFactor": 1,
+            "isMobile": false,
+            "hasTouch": false,
+            "isLandscape": false
+        },
+        {
+            "type": "navigate",
+            "url": "https://frontend-portfolio-project-chslebe35-behumble437s-projects.vercel.app/admin/projects",
+            "assertedEvents": [
+                {
+                    "type": "navigation",
+                    "url": "https://frontend-portfolio-project-chslebe35-behumble437s-projects.vercel.app/admin/projects",
+                    "title": "portfolio-frontend"
+                }
+            ]
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Edit"
+                ],
+                [
+                    "#root > div > div > button:nth-of-type(1)"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div/button[1]"
+                ],
+                [
+                    "pierce/#root > div > div > button:nth-of-type(1)"
+                ],
+                [
+                    "text/Edit"
+                ]
+            ],
+            "offsetY": 22.875,
+            "offsetX": 28
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "input[type='date']"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/form/input[2]"
+                ],
+                [
+                    "pierce/input[type='date']"
+                ],
+                [
+                    "text/2026-04-11"
+                ]
+            ],
+            "offsetY": 19.125,
+            "offsetX": 582
+        },
+        {
+            "type": "change",
+            "value": "2026-04-12",
+            "selectors": [
+                [
+                    "input[type='date']"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/form/input[2]"
+                ],
+                [
+                    "pierce/input[type='date']"
+                ],
+                [
+                    "text/2026-04-11"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Project Title"
+                ],
+                [
+                    "input[type='text']"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/form/input[1]"
+                ],
+                [
+                    "pierce/input[type='text']"
+                ]
+            ],
+            "offsetY": 26.125,
+            "offsetX": 143
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Project Title"
+                ],
+                [
+                    "input[type='text']"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/form/input[1]"
+                ],
+                [
+                    "pierce/input[type='text']"
+                ]
+            ],
+            "offsetY": 32.125,
+            "offsetX": 64,
+            "duration": 711.1000000238419
+        },
+        {
+            "type": "change",
+            "value": "testing33",
+            "selectors": [
+                [
+                    "aria/Project Title"
+                ],
+                [
+                    "input[type='text']"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/form/input[1]"
+                ],
+                [
+                    "pierce/input[type='text']"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Project Title"
+                ],
+                [
+                    "input[type='text']"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/form/input[1]"
+                ],
+                [
+                    "pierce/input[type='text']"
+                ]
+            ],
+            "offsetY": 32.125,
+            "offsetX": 67,
+            "duration": 505.7999999523163
+        },
+        {
+            "type": "change",
+            "value": "testing4444",
+            "selectors": [
+                [
+                    "aria/Project Title"
+                ],
+                [
+                    "input[type='text']"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/form/input[1]"
+                ],
+                [
+                    "pierce/input[type='text']"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Description"
+                ],
+                [
+                    "textarea"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/form/textarea"
+                ],
+                [
+                    "pierce/textarea"
+                ]
+            ],
+            "offsetY": 26.125,
+            "offsetX": 66
+        },
+        {
+            "type": "change",
+            "value": "testing4444 demo",
+            "selectors": [
+                [
+                    "aria/Description"
+                ],
+                [
+                    "textarea"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/form/textarea"
+                ],
+                [
+                    "pierce/textarea"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Update Project"
+                ],
+                [
+                    "form button:nth-of-type(1)"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/form/div/button[1]"
+                ],
+                [
+                    "pierce/form button:nth-of-type(1)"
+                ],
+                [
+                    "text/Update Project"
+                ]
+            ],
+            "offsetY": 16.125,
+            "offsetX": 102
+        }
+    ]
+}
