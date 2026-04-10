@@ -30,7 +30,6 @@ function SignIn() {
 
     try {
       const res = await API.post("/users/signin", formData);
-
       login(res.data.data, res.data.token);
       setMessage("Sign in successful.");
 
@@ -45,91 +44,57 @@ function SignIn() {
   return (
     <>
       <Navbar />
-      <div style={styles.page}>
-        <div style={styles.card}>
-          <h1>Sign In</h1>
 
-          <form onSubmit={handleSubmit} style={styles.form}>
-            <input
-              style={styles.input}
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-            <input
-              style={styles.input}
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-            />
-            <button style={styles.button} type="submit">
-              Sign In
+      <div className="auth-page">
+        <div className="auth-card">
+          <div className="section-label">Authentication</div>
+          <h1 className="auth-title">Sign in</h1>
+          <p className="auth-desc">
+            Access your dashboard and manage protected portfolio content.
+          </p>
+
+          <form onSubmit={handleSubmit} className="auth-form">
+            <div>
+              <div className="auth-label">Email</div>
+              <input
+                className="auth-input"
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <div>
+              <div className="auth-label">Password</div>
+              <input
+                className="auth-input"
+                type="password"
+                name="password"
+                placeholder="Enter your password"
+                value={formData.password}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <button className="btn btn-purple" type="submit">
+              Sign in
             </button>
           </form>
 
-          {message && <p style={styles.success}>{message}</p>}
-          {error && <p style={styles.error}>{error}</p>}
+          {message && <p className="auth-message auth-success">{message}</p>}
+          {error && <p className="auth-message auth-error">{error}</p>}
 
-          <p>
-            Don&apos;t have an account? <Link to="/signup">Sign Up</Link>
+          <p className="auth-footer">
+            Don&apos;t have an account? <Link to="/signup">Create one</Link>
           </p>
         </div>
       </div>
     </>
   );
 }
-
-const styles = {
-  page: {
-    minHeight: "80vh",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: "30px",
-    background: "#f3f4f6",
-  },
-  card: {
-    width: "100%",
-    maxWidth: "420px",
-    background: "#fff",
-    padding: "30px",
-    borderRadius: "12px",
-    boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
-  },
-  form: {
-    display: "flex",
-    flexDirection: "column",
-    gap: "12px",
-    marginTop: "16px",
-  },
-  input: {
-    padding: "12px",
-    borderRadius: "8px",
-    border: "1px solid #d1d5db",
-  },
-  button: {
-    padding: "12px",
-    border: "none",
-    borderRadius: "8px",
-    background: "#2563eb",
-    color: "#fff",
-    cursor: "pointer",
-    fontWeight: "bold",
-  },
-  success: {
-    color: "green",
-    marginTop: "12px",
-  },
-  error: {
-    color: "red",
-    marginTop: "12px",
-  },
-};
 
 export default SignIn;

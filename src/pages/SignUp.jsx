@@ -43,109 +43,83 @@ function SignUp() {
   return (
     <>
       <Navbar />
-      <div style={styles.page}>
-        <div style={styles.card}>
-          <h1>Sign Up</h1>
 
-          <form onSubmit={handleSubmit} style={styles.form}>
-            <input
-              style={styles.input}
-              type="text"
-              name="firstname"
-              placeholder="First Name"
-              value={formData.firstname}
-              onChange={handleChange}
-              required
-            />
-            <input
-              style={styles.input}
-              type="text"
-              name="lastname"
-              placeholder="Last Name"
-              value={formData.lastname}
-              onChange={handleChange}
-              required
-            />
-            <input
-              style={styles.input}
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-            <input
-              style={styles.input}
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-            />
-            <button style={styles.button} type="submit">
-              Create Account
+      <div className="auth-page">
+        <div className="auth-card">
+          <div className="section-label">Authentication</div>
+          <h1 className="auth-title">Create account</h1>
+          <p className="auth-desc">
+            Register a new account to access protected portfolio management features.
+          </p>
+
+          <form onSubmit={handleSubmit} className="auth-form">
+            <div>
+              <div className="auth-label">First name</div>
+              <input
+                className="auth-input"
+                type="text"
+                name="firstname"
+                placeholder="Enter your first name"
+                value={formData.firstname}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <div>
+              <div className="auth-label">Last name</div>
+              <input
+                className="auth-input"
+                type="text"
+                name="lastname"
+                placeholder="Enter your last name"
+                value={formData.lastname}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <div>
+              <div className="auth-label">Email</div>
+              <input
+                className="auth-input"
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <div>
+              <div className="auth-label">Password</div>
+              <input
+                className="auth-input"
+                type="password"
+                name="password"
+                placeholder="Create a password"
+                value={formData.password}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <button className="btn btn-purple" type="submit">
+              Create account
             </button>
           </form>
 
-          {message && <p style={styles.success}>{message}</p>}
-          {error && <p style={styles.error}>{error}</p>}
+          {message && <p className="auth-message auth-success">{message}</p>}
+          {error && <p className="auth-message auth-error">{error}</p>}
 
-          <p>
-            Already have an account? <Link to="/signin">Sign In</Link>
+          <p className="auth-footer">
+            Already have an account? <Link to="/signin">Sign in</Link>
           </p>
         </div>
       </div>
     </>
   );
 }
-
-const styles = {
-  page: {
-    minHeight: "80vh",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: "30px",
-    background: "#f3f4f6",
-  },
-  card: {
-    width: "100%",
-    maxWidth: "420px",
-    background: "#fff",
-    padding: "30px",
-    borderRadius: "12px",
-    boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
-  },
-  form: {
-    display: "flex",
-    flexDirection: "column",
-    gap: "12px",
-    marginTop: "16px",
-  },
-  input: {
-    padding: "12px",
-    borderRadius: "8px",
-    border: "1px solid #d1d5db",
-  },
-  button: {
-    padding: "12px",
-    border: "none",
-    borderRadius: "8px",
-    background: "#2563eb",
-    color: "#fff",
-    cursor: "pointer",
-    fontWeight: "bold",
-  },
-  success: {
-    color: "green",
-    marginTop: "12px",
-  },
-  error: {
-    color: "red",
-    marginTop: "12px",
-  },
-};
 
 export default SignUp;

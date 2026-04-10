@@ -5,83 +5,40 @@ function Navbar() {
   const { isAuthenticated, logout, user } = useAuth();
 
   return (
-    <nav style={styles.nav}>
-      <div style={styles.left}>
-        <span style={styles.brand}>Portfolio</span>
-      </div>
+    <nav className="navbar">
+      <div className="navbar-inner">
+        <Link to="/" className="nav-brand">
+          Portfolio
+        </Link>
 
-      <div style={styles.links}>
-        <Link style={styles.link} to="/">Home</Link>
-        <Link style={styles.link} to="/about">About Me</Link>
-        <Link style={styles.link} to="/projects">Projects</Link>
-        <Link style={styles.link} to="/services">Services</Link>
-        <Link style={styles.link} to="/contact">Contact</Link>
-        <Link style={styles.link} to="/references">References</Link>
+        <div className="nav-links">
+          <Link className="nav-link" to="/">Home</Link>
+          <Link className="nav-link" to="/about">About</Link>
+          <Link className="nav-link" to="/projects">Projects</Link>
+          <Link className="nav-link" to="/services">Services</Link>
+          <Link className="nav-link" to="/references">References</Link>
+          <Link className="nav-link" to="/contact">Contact</Link>
 
-        {!isAuthenticated ? (
-          <>
-            <Link style={styles.link} to="/signup">Sign Up</Link>
-            <Link style={styles.link} to="/signin">Sign In</Link>
-          </>
-        ) : (
-          <>
-            <Link style={styles.link} to="/dashboard">Dashboard</Link>
-            <span style={styles.userText}>
-              {user?.firstname ? `Hi, ${user.firstname}` : "Signed In"}
-            </span>
-            <button style={styles.button} onClick={logout}>
-              Sign Out
-            </button>
-          </>
-        )}
+          {!isAuthenticated ? (
+            <>
+              <Link className="nav-link" to="/signup">Sign Up</Link>
+              <Link className="nav-link" to="/signin">Sign In</Link>
+            </>
+          ) : (
+            <>
+              <Link className="nav-link" to="/dashboard">Dashboard</Link>
+              <span className="nav-link">
+                {user?.firstname ? `Hi, ${user.firstname}` : "Signed In"}
+              </span>
+              <button className="nav-button" onClick={logout}>
+                Sign Out
+              </button>
+            </>
+          )}
+        </div>
       </div>
     </nav>
   );
 }
-
-const styles = {
-  nav: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: "16px 28px",
-    background: "#1f2937",
-    color: "#fff",
-    flexWrap: "wrap",
-    gap: "14px",
-  },
-  left: {
-    display: "flex",
-    alignItems: "center",
-    gap: "10px",
-  },
-  brand: {
-    fontSize: "20px",
-    fontWeight: "bold",
-  },
-  links: {
-    display: "flex",
-    alignItems: "center",
-    gap: "14px",
-    flexWrap: "wrap",
-  },
-  link: {
-    color: "#fff",
-    textDecoration: "none",
-    fontSize: "15px",
-  },
-  button: {
-    background: "#ef4444",
-    color: "#fff",
-    border: "none",
-    padding: "8px 12px",
-    borderRadius: "6px",
-    cursor: "pointer",
-  },
-  userText: {
-    fontSize: "14px",
-    color: "#d1d5db",
-  },
-};
 
 export default Navbar;

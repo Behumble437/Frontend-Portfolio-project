@@ -4,14 +4,19 @@ import API from "../services/api";
 
 function Services() {
   const [services, setServices] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const fetchServices = async () => {
       try {
+        setLoading(true);
         const res = await API.get("/services");
-        setServices(res.data.data);
-      } catch (error) {
-        console.error("Failed to fetch services:", error);
+        setServices(res.data.data || []);
+      } catch (err) {
+        setError("Failed to load services.");
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -22,24 +27,40 @@ function Services() {
     <>
       <Navbar />
 
-      <div className="container">
-        <h1>Services</h1>
+      <section className="feature-section">
+        <div className="container">
+          <div className="section-label">Offerings</div>
+          <h1 className="feature-heading">Services</h1>
+          <p className="feature-subtext">
+            Services added through the management dashboard will appear here.
+          </p>
 
-        {services.length === 0 ? (
-          <p>No services found.</p>
-        ) : (
-          services.map((service) => (
-            <div className="project" key={service.id}>
-              <h3>{service.title}</h3>
-              <p>{service.description}</p>
+          {loading && <p className="feature-subtext">Loading services...</p>}
+          {error && <p className="auth-error">{error}</p>}
+
+          {!loading && !error && services.length === 0 && (
+            <div className="card">
+              <h3 className="card-title">No services yet</h3>
+              <p className="card-text">
+                Services will be displayed here after they are added in the dashboard.
+              </p>
             </div>
-          ))
-        )}
-      </div>
+          )}
 
-      <footer>
-        @ 2026 Hanmu Xiong. All rights reserved.
-      </footer>
+          {!loading && !error && services.length > 0 && (
+            <div className="card-grid">
+              {services.map((service) => (
+                <div key={service._id || service.id} className="card">
+                  <h3 className="card-title">{service.title}</h3>
+                  <p className="card-text">
+                    {service.description || "No description available."}
+                  </p>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
     </>
   );
 }

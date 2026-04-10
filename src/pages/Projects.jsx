@@ -14,7 +14,7 @@ function Projects() {
         const res = await API.get("/projects");
         setProjects(res.data.data || []);
       } catch (err) {
-        setError("Failed to fetch projects.");
+        setError("Failed to load projects.");
       } finally {
         setLoading(false);
       }
@@ -26,59 +26,43 @@ function Projects() {
   return (
     <>
       <Navbar />
-      <div style={styles.page}>
-        <h1>My Projects</h1>
 
-        {loading && <p>Loading projects...</p>}
-        {error && <p style={styles.error}>{error}</p>}
+      <section className="feature-section">
+        <div className="container">
+          <div className="section-label">Portfolio</div>
+          <h1 className="feature-heading">Projects</h1>
+          <p className="feature-subtext">
+            Projects added through the management dashboard will appear here.
+          </p>
 
-        {!loading && !error && projects.length === 0 && <p>No projects found.</p>}
+          {loading && <p className="feature-subtext">Loading projects...</p>}
+          {error && <p className="auth-error">{error}</p>}
 
-        <div style={styles.grid}>
-          {!loading &&
-            !error &&
-            projects.map((project) => (
-              <div key={project.id || project._id} style={styles.card}>
-                <h3>{project.title}</h3>
-                <p>
-                  <strong>Completion Date:</strong>{" "}
-                  {project.completion
-                    ? new Date(project.completion).toLocaleDateString("en-CA")
-                    : "N/A"}
-                </p>
-                <p>{project.description}</p>
-              </div>
-            ))}
+          {!loading && !error && projects.length === 0 && (
+            <div className="card">
+              <h3 className="card-title">No projects yet</h3>
+              <p className="card-text">
+                Projects will be displayed here after they are added in the dashboard.
+              </p>
+            </div>
+          )}
+
+          {!loading && !error && projects.length > 0 && (
+            <div className="card-grid">
+              {projects.map((project) => (
+                <div key={project._id || project.id} className="card">
+                  <h3 className="card-title">{project.title}</h3>
+                  <p className="card-text">
+                    {project.description || "No description available."}
+                  </p>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
-
-        <p style={styles.footer}>@ 2026 Hanmu Xiong. All rights reserved.</p>
-      </div>
+      </section>
     </>
   );
 }
-
-const styles = {
-  page: {
-    padding: "40px",
-  },
-  grid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-    gap: "20px",
-    marginTop: "24px",
-  },
-  card: {
-    background: "#fff",
-    borderRadius: "12px",
-    padding: "20px",
-    boxShadow: "0 4px 10px rgba(0,0,0,0.08)",
-  },
-  error: {
-    color: "red",
-  },
-  footer: {
-    marginTop: "30px",
-  },
-};
 
 export default Projects;
